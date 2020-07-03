@@ -14,6 +14,9 @@ const totalCases = document.getElementById('totalCases');
 const totalRecoveries = document.getElementById('totalRecoveries');
 const totalDeaths = document.getElementById('totalDeaths');
 const countryInput = document.getElementById('countryInput');
+const lookingAt = document.getElementById('lookingAt');
+
+backGlobal.addEventListener('click', backToGlobal)
 
 function useInfo(data) {
     newCases.innerHTML = data.Global.NewConfirmed;
@@ -22,6 +25,7 @@ function useInfo(data) {
     totalCases.innerHTML = data.Global.TotalConfirmed;
     totalRecoveries.innerHTML = data.Global.TotalRecovered;
     totalDeaths.innerHTML = data.Global.TotalDeaths;
+    lookingAt.innerHTML = 'You are looking at global statistics'
 }
 
 document.getElementById('enterBtn').addEventListener('click', changeCountry);
@@ -39,6 +43,7 @@ function changeCountry() {
                 totalRecoveries.innerHTML = data.Countries[i].TotalRecovered;
                 totalDeaths.innerHTML = data.Countries[i].TotalDeaths;
                 foundCountry = true;
+                lookingAt.innerHTML = `You are looking at statstics of ${data.Countries[i].Country}`
             }
         }
 
@@ -47,4 +52,8 @@ function changeCountry() {
         }
     })
     .catch(err => console.log(err));
+}
+
+function backToGlobal() {
+    location.reload()
 }
