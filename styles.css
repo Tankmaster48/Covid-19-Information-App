@@ -2,6 +2,23 @@
     font-family: Arial;
 }
 
+.nav {
+    width: 800px;
+    height: 100px;
+    padding: 10px;
+    margin: 20px;
+    border: 2px solid black;
+    border-radius: 25px;
+    background-color: blue;
+    flex-wrap: wrap;
+    display: flex;
+    align-items: center;
+}
+
+.navContent {
+    margin: auto;
+}
+
 .box {
     width: 800px;
     height: 800px;
